@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: tghyu
+  description: provision ECS using backstage
+spec:
+  owner: group:default/guests
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tghyu
+  description: provision ECS using backstage
+  annotations:
+     backstage.io/techdocs-ref: dir:./docs
+     github.com/project-slug: prayankag/tghyu/actions    
+spec:
+  type: service
+  owner: group:default/guests
+  lifecycle: experimental
+  system: tghyu
+  providesApis:
+    - tghyu
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: tghyu
+  description: provision ECS using backstage
+spec:
+  type: internal
+  lifecycle: experimental
+  owner: group:default/guests
+  system: tghyu
+  definition: "provision ECS using backstage"
